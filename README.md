@@ -19,7 +19,12 @@ npm run build
 El arranque del build suele arrojar errores para ello se recomienda actualizar las dependencias, empezando por las de Babel:
 
 ```
-npm i -D @babel/core @babel/preset-env babel-loader babel-minify-webpack-plugin babel-preset-minify
+npm i -D 
+@babel/core 
+@babel/preset-env 
+babel-loader 
+babel-minify-webpack-plugin 
+babel-preset-minify
 ```
 
 Después de actualizar volver a ejecutar el npm run build
