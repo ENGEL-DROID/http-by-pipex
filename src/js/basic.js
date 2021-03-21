@@ -32,17 +32,24 @@ export const cuerpo = () => {
 
 const escuchar = () => {
     const link = document.querySelectorAll('a');
-    
     link.item(addEventListener('click', (e) => {
         if(e.target.id == 'chiste') {
-            console.log('Click en CHISTE');
-            chiste();
+            e.preventDefault();
+            montarChiste();
+        } else if(e.target.id == 'crud') {
+            e.preventDefault();
+            crud();
+        } else if(e.target.id == 'upload') {
+            e.preventDefault();
+            upload();
         }
     }));
 }
 
-const chiste = () => {
+const montarChiste = () => {
+    let cont = 0;
     const div = document.getElementById('carga');
+    div.innerHTML = '';
     const contenido = `
         <div>
         <h2>CHISTES:</h2>
@@ -51,6 +58,47 @@ const chiste = () => {
         <button>Generar un chiste</button>
         </a>
         </div>
+    `;
+    div.innerHTML = contenido;
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const chiste = await (await getChiste()).joke;
+        const divInt = document.createElement('div');
+        const elemento = `
+        <hr>
+        <p> ${cont++} - ${chiste} </p>
+        `;
+        divInt.innerHTML = elemento;
+        div.append(divInt);
+    })
+};
+
+// TODO:
+const crud = () => {
+    const div = document.getElementById('carga');
+    div.innerHTML = '';
+    const contenido = `
+        <div>
+        <h2>CRUD:</h2>
+        <hr>
+        <a href="">
+        <button>Crear un Usuario</button>
+        </a>
+        </div>
+        `;
+        div.innerHTML = contenido;
+};
+
+// TODO:
+const upload = () => {
+    const div = document.getElementById('carga');
+    div.innerHTML = '';
+    const contenido = `
+        <div>
+        <h2>UPLOAD:</h2>
+        <hr>
+        <input type="file" name="archivo" id="imagen" accept=".jpg, .jpeg, .gif, .png, .svg"></input>
         `;
         div.innerHTML = contenido;
 };
