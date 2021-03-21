@@ -19,7 +19,15 @@ body {
 #contenido {
     height: 30vh;
     width: 90%;
-    padding: 5%;
+    padding-left: 5%;
+    padding-top: 5%;
+    line-height: 5vh;
+}
+#carga {
+    height: auto;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
     line-height: 5vh;
 }
 a {
@@ -36,5 +44,6 @@ a:hover {
     height: 20vh;
     width: 100%;
     padding-top: 10%;
+    margin-top: 5%;
     background-color: rgb(63, 54, 63);
 }
