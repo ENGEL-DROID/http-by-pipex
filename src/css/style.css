@@ -1,0 +1,40 @@
+body {
+    margin: 0 !important;
+    font-family: sans-serif;
+    color: rgb(70, 49, 70);
+}
+#titP {
+    padding-top: 20%;
+}
+#cabecera {
+    color: rgb(253, 244, 255);
+    height: 30vh;
+    width: 90%;
+    padding: 5%;
+    background-image: url('https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1100&q=80');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#contenido {
+    height: 30vh;
+    width: 90%;
+    padding: 5%;
+    line-height: 5vh;
+}
+a {
+    color: rgb(216, 107, 5);
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(185, 115, 185);
+    font-size: larger;
+}
+#footer {
+    color: rgb(250, 231, 255);
+    text-align: center;
+    height: 20vh;
+    width: 100%;
+    padding-top: 10%;
+    background-color: rgb(63, 54, 63);
+}
