@@ -69,3 +69,13 @@ img {
     margin-left: 70%;
     margin-top: -15vh;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    text-align: center;
+    width: auto;
+    border-collapse: collapse;
+    border: 1px solid rgb(169, 155, 172);
+}
