@@ -14,11 +14,23 @@ const getChiste= async () => {
         throw err;
     }
 }
-
+// ------------- Crear Usuarios -------------
 const createUsuario = async () => {
-    console.log("CREATE_USUARIO");
-};
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "__cfduid=d923944b0cc61ebf09dea5d5803b6d8e81616238019");
 
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+
+    await fetch(urlUsuarios, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result.id))
+    .catch(error => console.log('error', error));
+};
+// ------------- Leer Usuarios -------------
 const readUsuario = async () => {
     try {
         const usuarios = await fetch(urlUsuarios);
@@ -29,11 +41,11 @@ const readUsuario = async () => {
         throw error;
     }
 };
-
+// ------------- Actualizar Usuarios -------------
 const updateUsuario = async () => {
     console.log("UPDATE_USUARIO");
 };
-
+// ------------- Borrar Usuarios -------------
 const deleteUsuario = async () => {
     console.log("DELETE_USUARIO");
 };

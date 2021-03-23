@@ -29,8 +29,41 @@ const acciones = () => {
         else if(e.target.id == "deletex") deleteHtml();
     }));
 }
-
+// ------------- Crear Usuarios -------------
+const createHtml = async () => {
+    const oldTable = document.querySelector('table');
+    if(oldTable) document.querySelector('table').remove();
+    const divCarga = document.getElementById('carga');
+    const tablaCuerpo = `
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fecha Creación</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    `;
+    const tablaHtml = document.createElement('table');
+    tablaHtml.innerHTML = tablaCuerpo;
+    divCarga.append(tablaHtml);
+    const filas = (usuario) => {
+        const fila = `
+        <tr>
+            <td>${usuario.id}</td>
+            <td>${usuario.createdAt}</td>
+        </tr>
+        `;
+        const tBody = document.querySelector('tBody');
+        const tRow = document.createElement('tr');
+        tRow.innerHTML = fila;
+        tBody.append(tRow);
+    };
+    await createUsuario().then(usuario => filas(usuario));
+};
+// ------------- Leer Usuarios -------------
 const readHtml = async () => {
+    const oldTable = document.querySelector('table');
+    if(oldTable) document.querySelector('table').remove();
     const divCarga = document.getElementById('carga');
     const tablaCuerpo = `
     <thead>
