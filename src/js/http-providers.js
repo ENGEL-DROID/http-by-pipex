@@ -15,20 +15,22 @@ const getChiste= async () => {
     }
 }
 // ------------- Crear Usuarios -------------
-const createUsuario = async () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "__cfduid=d923944b0cc61ebf09dea5d5803b6d8e81616238019");
-
-    var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    redirect: 'follow'
-    };
-
-    await fetch(urlUsuarios, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result.id))
-    .catch(error => console.log('error', error));
+const createUsuario = async (nombre, profesion) => {
+    const axios = require('axios');
+    const usuario = {
+        "name": nombre,
+        "job": profesion
+        // "name": "Pipeido",
+        // "job": "Programador"
+    }
+    try {
+        const res = await axios.post('https://reqres.in/api/users', usuario);
+        // console.log(`Status: ${res.status}`);
+        // console.log('Body: ', res.data);
+        return res.data;
+    } catch (err) {
+        console.error(err);
+    }
 };
 // ------------- Leer Usuarios -------------
 const readUsuario = async () => {

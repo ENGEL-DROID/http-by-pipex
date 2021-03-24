@@ -79,3 +79,7 @@ th, td {
     border-collapse: collapse;
     border: 1px solid rgb(169, 155, 172);
 }
+button {
+    height: 5vh;
+    background-color: rgb(220, 151, 252);
+}
