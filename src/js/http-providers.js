@@ -13,7 +13,9 @@ const getChiste= async () => {
     } catch (err) {
         throw err;
     }
-}
+};
+
+
 // ------------- Crear Usuarios -------------
 const createUsuario = async (nombre, profesion) => {
     const axios = require('axios');
@@ -32,6 +34,8 @@ const createUsuario = async (nombre, profesion) => {
         console.error(err);
     }
 };
+
+
 // ------------- Leer Usuarios -------------
 const readUsuario = async () => {
     try {
@@ -43,13 +47,50 @@ const readUsuario = async () => {
         throw error;
     }
 };
+
+
 // ------------- Actualizar Usuarios -------------
 const updateUsuario = async () => {
-    console.log("UPDATE_USUARIO");
+    const usuario = `
+    {
+        "name": "Pipex",
+        "job": "Astrofísico"
+    }
+    `;
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "__cfduid=d923944b0cc61ebf09dea5d5803b6d8e81616238019");
+
+    var requestOptions = {
+    method: 'PUT',
+    headers: myHeaders,
+    body: JSON.stringify(usuario),
+    redirect: 'follow'
+    };
+
+    const resp = await fetch(urlUsuarios, requestOptions)
+    .then(response => response)
+    .catch(error => console.log('error', error));
+
+    return resp;
 };
+
+
 // ------------- Borrar Usuarios -------------
 const deleteUsuario = async () => {
-    console.log("DELETE_USUARIO");
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "__cfduid=d923944b0cc61ebf09dea5d5803b6d8e81616238019");
+
+    var requestOptions = {
+    method: 'DELETE',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+
+    const resp = await fetch("https://reqres.in/api/2", requestOptions)
+    .then(response => response)
+    .catch(error => console.log('error', error));
+
+    return resp;
 };
 
 export {
@@ -58,4 +99,4 @@ export {
     readUsuario,
     updateUsuario,
     deleteUsuario
-}
+};

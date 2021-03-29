@@ -162,3 +162,14 @@ const readHtml = async () => {
     };
     (await readUsuario()).forEach(filas);
 };
+
+
+// ------------- Actualizar Usuarios -------------
+const updateHtml = async () => {
+    console.log(await updateUsuario().then());
+};
+
+// ------------- Eliminar Usuarios -------------
+const deleteHtml = async () => {
+    console.log(await deleteUsuario().then());
+};
